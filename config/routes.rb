@@ -1,4 +1,25 @@
 Mystaffin::Application.routes.draw do
+  
+  get "synthese" => "synthese#index", :as => "synthese"
+  get "board" => "board#index", :as => "board"
+  get "dispos/", :to => "dispos#new"
+  
+  resources :statuts
+
+  resources :dispos
+
+  resources :teams
+
+  resources :organizations
+
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+
+  root :to => "home#index"
+
+  authenticated :user do
+    root :to => 'home#index'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

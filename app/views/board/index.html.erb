@@ -1,0 +1,49 @@
+
+<div class="page-header">
+  <h1>Liste des disponibilités <small><%= link_to params.merge(:format => "xls"), :title => "Telecharger au format Excel", :rel => "tooltip" do %><i class="icon-download-alt"></i><% end %></small></h1>
+</div>
+<h2 id="month">
+<ul class="pager">
+    <li class="previous">
+    <%= link_to '«', :week => (@date.beginning_of_week-1) %>
+    </li>
+<%=h @date.strftime("%B %Y") %>
+    <li class="next">
+   	<%= link_to "»", :week => (@date.end_of_week+1) %>
+    </li>
+    </ul>
+	  </h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+	    <th>Nom</th>
+		<th>Lundi <%= @lundi.to_date.to_s(:short)%></th>
+		<th>Mardi <%= @mardi.to_date.to_s(:short) %></th>
+		<th>Mercredi <%= @mercredi.to_date.to_s(:short) %></th>
+		<th>Jeudi <%= @jeudi.to_date.to_s(:short) %></th>
+		<th>Vendredi <%= @vendredi.to_date.to_s(:short) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %> <%= user.first_name %></td>
+		<% 5.times do |a|  %>
+		<% @day = @lundi + a %>
+        <td>
+			<% user.dispos.of_day(@day).each do |show| %>
+			<% if show.comments.empty? %>
+				<span class="<%= show.statut.color %>"><%= show.statut.name %></span>	
+			<% else %>
+				<%= link_to "#", html_options = { :title => show.comments, :rel => "tooltip" } do %>
+					<span class="<%= show.statut.color %>"><%= show.statut.name %></span>
+				<% end %>	
+			<% end %>				
+				
+			<% end %>
+			</td>
+		<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

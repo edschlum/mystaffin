@@ -1,0 +1,34 @@
+<%= link_to "MyStaff.in", root_path, :class => 'brand' %>
+
+  <% if user_signed_in? %>
+	<div class="nav-collapse">
+		<ul class="nav">
+			<li><a href="/dispos/new">Saisir</a></li>
+			<li><a href="/synthese/">Mon calendrier</a></li>
+			<li><a href="/board/">Tableau de bord</a></li>
+			<li class="divider-vertical"></li>
+		</ul>
+	</div>
+	<div class="nav-collapse">
+	<div class="pull-right">
+		<ul class="nav">
+			<li><a href="<%= edit_user_registration_path(current_user) %>"><%= current_user.first_name %> <%= current_user.name %>	</a></li>
+			</ul> 
+			<%= link_to('Deconnexion', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-small' ) %>
+			</a>
+		</div>
+	</div>
+  <% else %>
+		<div class="nav-collapse">
+		<div class="pull-right">
+			<%= link_to('Connexion', new_user_session_path, :class => 'btn btn-success btn-small')  %>			
+		</div>
+	</div>
+  <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.has_role? :admin %>
+      <li>
+      <%= link_to('Admin', users_path) %>
+      </li>
+    <% end %>
+  <% end %>

@@ -1,0 +1,44 @@
+<%= form_for(@statut, :html => { :class => 'well form-horizontal' }) do |f| %>
+  <% if @statut.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statut.errors.count, "error") %> prohibited this statut from being saved:</h2>
+
+      <ul>
+      <% @statut.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="control-group">
+    <%= f.label :name, 'Nom', :class => 'control-label' %>
+		<div class="controls">
+    <%= f.text_field :name %>
+  </div>
+	<label class="radio">
+	     <%= f.radio_button :color, "label"  %> <span class="label">Gris</span>
+	</label>
+	<label class="radio">
+	     <%= f.radio_button :color, "label label-success"  %> <span class="label label-success">Vert</span>
+	</label>
+	<label class="radio">
+	     <%= f.radio_button :color, "label label-warning"  %> <span class="label label-warning">Orange</span>
+	</label>
+	<label class="radio">
+	     <%= f.radio_button :color, "label label-important"  %> <span class="label label-important">Rouge</span>
+	</label>
+	<label class="radio">
+	     <%= f.radio_button :color, "label label-info"  %> <span class="label label-info">Bleu</span>
+	</label>
+	<label class="radio">
+	     <%= f.radio_button :color, "label label-inverse"  %> <span class="label label-inverse">Noir</span>
+	</label>
+</div>
+<div class="control-group">
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
