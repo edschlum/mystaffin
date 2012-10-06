@@ -50,6 +50,6 @@ Mystaffin::Application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["e.schlum@gmail.com"],
-    password: ENV["schlum86"]
+    password: ENV[""]
   }
 end
