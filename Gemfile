@@ -1,7 +1,14 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.8'
-gem 'sqlite3'
+
 gem "watu_table_builder", :require => "table_builder"
+
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
