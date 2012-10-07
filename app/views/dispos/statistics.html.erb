@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+    <div class="span3">
+      	<div class="well sidebar-nav">
+		            <ul class="nav nav-list">
+		              <li class="nav-header">Statistiques</li>
+		              <li class="active"><a href="#">Taux de production</a></li>
+		            </ul>
+		          </div>
+    </div>
+    <div class="span9">
+	   <% weekdays = [0,6] %>
+	    <% day_first = Date.today.at_beginning_of_month %>
+	   <% day_last = Date.today.at_beginning_of_month.next_month %>
+		
+		
+    Mois en cours : <%= Date.today.strftime("%B") %>. <br />
+	Nombre de jours ouvrés : <% bday = calculate_working_days(day_first, day_last, weekdays).round %> <%= bday %><br />
+	Nombre de jours travaillés :
+
+	<br /><br />
+	<div id="repartition">
+
+	</div>
+	<div id="data">
+		[
+		<% @statuts.each do |statut| %>
+		    {label: "<%= statut.name %>", value: <%= @dispos.where(:statut_id => statut.id).count %>},
+		<% end %>
+		  ]
+	</div>
+
+
+
+    </div>
+  </div>
+	</div>

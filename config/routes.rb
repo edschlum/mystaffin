@@ -4,6 +4,8 @@ Mystaffin::Application.routes.draw do
   get "board" => "board#index", :as => "board"
   get "dispos/", :to => "dispos#new"
   
+  get "statistics/", :to => "dispos#statistics"
+  
   resources :statuts
 
   resources :dispos

@@ -14,6 +14,16 @@ class DisposController < ApplicationController
       format.json { render json: @dispos }
     end
   end
+  
+  def statistics
+    @date = params[:day] ? Date.parse(params[:day]) : Time.now.in_time_zone('Paris').to_date
+    @dispos = Dispo.where(:jour => (@date.beginning_of_month)..(@date.end_of_month))
+    @statuts = Statut.all
+    def nbre_dispo(id_statut)
+      @dispos.where(:statut_id => id_statut).count
+    end
+  end
+  
 
   # GET /dispos/1
   # GET /dispos/1.json
