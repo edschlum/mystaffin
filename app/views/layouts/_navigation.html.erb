@@ -5,9 +5,10 @@
 		<ul class="nav">
 			<li><a href="/dispos/new">Saisir</a></li>
 			<li><a href="/synthese/">Mon calendrier</a></li>
-			<li><a href="/board/">Tableau de bord</a></li>
+			<li><a href="/#/">Mes statistiques</a></li>
 			<li class="divider-vertical"></li>
-			<li><a href="/statistics/">Statistiques</a></li>
+			<li><a href="/board/">Tableau de bord</a></li>
+			<li><a href="/statistics/">Indicateurs</a></li>
 			<li><a href="/teams/">Equipes</a></li>
 		</ul>
 	</div>
@@ -23,6 +24,7 @@
   <% else %>
 		<div class="nav-collapse">
 		<div class="pull-right">
+			<%= link_to('S\'inscrire', new_user_registration_path, :class => 'btn btn-primary btn-action btn-small')  %>			
 			<%= link_to('Connexion', new_user_session_path, :class => 'btn btn-success btn-small')  %>			
 		</div>
 	</div>

@@ -6,9 +6,11 @@
 			<% if user_signed_in? %>
 			<% else %>
 				<%= link_to('S\'inscrire', new_user_registration_path, :class => 'btn btn-primary btn-action btn-large') %>
+				<%= link_to('Connexion', new_user_session_path, :class => 'btn btn-primary btn-success btn-large')  %>					
 				<br />
-				Ou visiter une démo.
-			<% end  %>			
+				<br />
+			<a href="#">Tester l'application</a>
+			<% end  %>	
 		</div>
 		
 		<div class="span3">
@@ -65,4 +67,17 @@
 				</li>
 			</ul>
 			</div>
+</div>
+<div class="row">
+	<div class="span4">
+		<h2>Sécurité</h2>
+		<p>L'accès à MyStaff.in est totalement sécurisé, et toutes les informations restent confidentielles.
+			</p>		
+	</div>
+
+	<div class="span4">
+		<h2>Statistiques</h2>
+		<p>Des indicateurs mis à jour en temps réel vous donnent le taux de production de votre activité en fonction du temps.
+		</p>
+	</div>	
 </div>
