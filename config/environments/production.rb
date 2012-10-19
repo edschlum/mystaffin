@@ -65,21 +65,26 @@ Mystaffin::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'www.mystaff.in' }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'mystaff.in' }
+ #  config.action_mailer.delivery_method = :smtp
   # change to false to prevent email from being sent during development
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default :charset => "utf-8"
   
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "mystaff.in",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["noreplymystaffin@gmail.com"],
-    password: ENV["mystaffin2012"],
-    openssl_verify_mode: 'none'
-  }  
+  require 'tlsmail'       
+   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+   ActionMailer::Base.delivery_method = :smtp   
+   ActionMailer::Base.perform_deliveries = true   
+   ActionMailer::Base.raise_delivery_errors = true   
+   ActionMailer::Base.smtp_settings = {   
+   :enable_starttls_auto => true,     
+   :address            => 'smtp.gmail.com',   
+   :port               => 587,   
+   :tls                  => true,   
+   :domain             => 'mystaff.in',    
+   :authentication     => :plain,   
+   :user_name          => 'noreplymystaffin@gmail.com',   
+   :password           => 'mystaffin20212' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
+   }
 end

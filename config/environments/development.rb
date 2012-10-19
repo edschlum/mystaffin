@@ -46,10 +46,11 @@ Mystaffin::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "example.com",
+    domain: "mystaff.in",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["noreplymystaffin@gmail.com"],
-    password: ENV["mystaffin2012"]
+    password: ENV["mystaffin2012"],
+    openssl_verify_mode: 'none'
   }
 end
