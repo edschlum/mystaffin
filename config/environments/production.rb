@@ -78,7 +78,7 @@ Mystaffin::Application.configure do
     :port                 => 587,
     :domain               => 'www.mystaff.in',
     :user_name            => 'noreplymystaffin@gmail.com',
-    :password             => 'mystaffin20212',
+    :password             => 'mystaffin2012',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
     
