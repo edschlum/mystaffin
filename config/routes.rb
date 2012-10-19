@@ -4,6 +4,9 @@ Mystaffin::Application.routes.draw do
   get "board" => "board#index", :as => "board"
   get "dispos/", :to => "dispos#new"
   
+  get "users/index"
+  get "users/show"
+  
   get "statistics/", :to => "dispos#statistics"
   
   resources :statuts
@@ -14,13 +17,15 @@ Mystaffin::Application.routes.draw do
 
   resources :organizations
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
-
   root :to => "home#index"
 
   authenticated :user do
     root :to => 'home#index'
   end
+  
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
