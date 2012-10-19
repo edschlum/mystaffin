@@ -72,8 +72,6 @@ Mystaffin::Application.configure do
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.default :charset => "utf-8"
   
-  require 'tlsmail'       
-   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
    ActionMailer::Base.delivery_method = :smtp   
    ActionMailer::Base.perform_deliveries = true   
    ActionMailer::Base.raise_delivery_errors = true   
@@ -81,7 +79,6 @@ Mystaffin::Application.configure do
    :enable_starttls_auto => true,     
    :address            => 'smtp.gmail.com',   
    :port               => 587,   
-   :tls                  => true,   
    :domain             => 'mystaff.in',    
    :authentication     => :plain,   
    :user_name          => 'noreplymystaffin@gmail.com',   
