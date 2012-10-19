@@ -30,9 +30,9 @@
 	</div>
   <% end %>
   <% if user_signed_in? %>
-    <% if current_user.has_role? :admin %>
+    <% if current_user.is_admin?  %>
       <li>
-      <%= link_to('Admin', users_path) %>
+      <%= link_to('Admin', '#') %>
       </li>
     <% end %>
   <% end %>

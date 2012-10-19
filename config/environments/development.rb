@@ -49,7 +49,7 @@ Mystaffin::Application.configure do
     domain: "example.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["e.schlum@gmail.com"],
-    password: ENV[""]
+    user_name: ENV["noreplymystaffin@gmail.com"],
+    password: ENV["mystaffin2012"]
   }
 end

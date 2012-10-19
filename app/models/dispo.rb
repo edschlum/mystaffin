@@ -1,4 +1,5 @@
 class Dispo < ActiveRecord::Base
+  resourcify
   attr_accessible :jour, :statut_id, :user_id, :comments
   belongs_to :user
   belongs_to :statut
