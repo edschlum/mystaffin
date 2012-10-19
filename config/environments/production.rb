@@ -65,7 +65,7 @@ Mystaffin::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'mystaff.in' }
+  config.action_mailer.default_url_options = { :host => 'www.mystaff.in' }
  #  config.action_mailer.delivery_method = :smtp
   # change to false to prevent email from being sent during development
   # config.action_mailer.perform_deliveries = true
@@ -75,11 +75,11 @@ Mystaffin::Application.configure do
    ActionMailer::Base.delivery_method = :smtp   
    ActionMailer::Base.perform_deliveries = true   
    ActionMailer::Base.raise_delivery_errors = true   
-   ActionMailer::Base.smtp_settings = {   
-   :address            => 'smtp.gmail.com',   
+   ActionMailer::Base.smtp_settings = {
+   :address            => "smtp.gmail.com",   
    :port               => 587,   
-   :domain             => 'noreplymystaffin@gmail.com',    
-   :authentication     => :plain,   
+   :domain             => 'www.mystaff.in',    
+   :authentication     => 'plain',   
    :user_name          => 'noreplymystaffin@gmail.com',   
    :password           => 'mystaffin20212', # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
    :enable_starttls_auto => true
