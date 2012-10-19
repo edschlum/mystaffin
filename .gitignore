@@ -75,3 +75,4 @@ pickle-email-*.html
 # vim artifacts
 **.swp
 config/environments/development.rb
+config/environments/production.rb
