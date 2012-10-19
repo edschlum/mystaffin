@@ -75,13 +75,13 @@ Mystaffin::Application.configure do
    ActionMailer::Base.delivery_method = :smtp   
    ActionMailer::Base.perform_deliveries = true   
    ActionMailer::Base.raise_delivery_errors = true   
-   ActionMailer::Base.smtp_settings = {
-   :enable_starttls_auto => true      
+   ActionMailer::Base.smtp_settings = {   
    :address            => 'smtp.gmail.com',   
    :port               => 587,   
    :domain             => 'noreplymystaffin@gmail.com',    
    :authentication     => :plain,   
    :user_name          => 'noreplymystaffin@gmail.com',   
-   :password           => 'mystaffin20212' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
+   :password           => 'mystaffin20212', # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
+   :enable_starttls_auto => true
    }
 end
