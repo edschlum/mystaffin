@@ -79,7 +79,7 @@ Mystaffin::Application.configure do
    :enable_starttls_auto => false,     
    :address            => 'smtp.gmail.com',   
    :port               => 587,   
-   :domain             => 'mystaff.in',    
+   :domain             => 'noreplymystaffin@gmail.com',    
    :authentication     => :plain,   
    :user_name          => 'noreplymystaffin@gmail.com',   
    :password           => 'mystaffin20212' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
