@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019135024) do
+ActiveRecord::Schema.define(:version => 20121021171044) do
 
   create_table "dispos", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(:version => 20121019135024) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "teams_users", :id => false, :force => true do |t|
+    t.integer "team_id"
+    t.integer "user_id"
+  end
+
+  add_index "teams_users", ["team_id", "user_id"], :name => "index_teams_users_on_team_id_and_user_id"
+  add_index "teams_users", ["user_id", "team_id"], :name => "index_teams_users_on_user_id_and_team_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
