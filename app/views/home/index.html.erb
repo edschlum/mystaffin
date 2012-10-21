@@ -4,6 +4,7 @@
 			<h3>Ne courez plus après le temps. Du tout.</h3>
 			<p>MyStaff.in est une approche simple, agréable et efficace de la gestion du temps. Remplir son TimeSheet devient enfin un plaisir !</p>
 			<% if user_signed_in? %>
+				<%= link_to('Commencer à saisir', '/dispos/new', :class => 'btn btn-primary btn-success btn-large')  %>					
 			<% else %>
 				<%= link_to('S\'inscrire', new_user_registration_path, :class => 'btn btn-primary btn-action btn-large') %>
 				<%= link_to('Connexion', new_user_session_path, :class => 'btn btn-primary btn-success btn-large')  %>					
