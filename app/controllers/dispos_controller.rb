@@ -32,6 +32,17 @@ class DisposController < ApplicationController
 	  @day_last = @date.at_beginning_of_month.next_month
   end
   
+  def synthese
+    @dispos = Dispo.where("user_id = ?", current_user)
+    @date = params[:day] ? Date.parse(params[:day]) : Time.now.in_time_zone('Paris').to_date
+    @monthly = params[:month] ? Date.parse(params[:month]) : Time.now.in_time_zone('Paris').to_date
+    @statuts = Statut.all
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @dispos }
+    end
+  end
 
   # GET /dispos/1
   # GET /dispos/1.json
