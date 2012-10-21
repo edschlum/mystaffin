@@ -24,6 +24,7 @@ module DisposHelper
      id_statut = Statut.where(:name => name)
      current_user.dispos.where(:jour => (@date.beginning_of_month)..(@date.end_of_month)).where(:statut_id => id_statut).count
    end
+   #TODO : Gérer ici au mieux les "non missions" => Prendre tous les jours, et soustraire ceux qui sont en mission
    def nbre_not_mission(working_days,formation,conges,en_dispo)
      working_days - formation - conges - en_dispo
    end
