@@ -5,11 +5,11 @@
 <h2 id="month">
 <ul class="pager">
     <li class="previous">
-    <%= link_to '«', :month => (@date.beginning_of_week-1) %>
+    <%= link_to '«', :week => (@date.beginning_of_week-1) %>
     </li>
 <%=h @date.strftime("%B %Y") %>
     <li class="next">
-   	<%= link_to "»", :month => (@date.end_of_week+1) %>
+   	<%= link_to "»", :week => (@date.end_of_week+1) %>
     </li>
     </ul>
 	  </h2>

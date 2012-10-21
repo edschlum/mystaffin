@@ -19,11 +19,17 @@ class DisposController < ApplicationController
     @date = params[:month] ? Date.parse(params[:month]) : Time.now.in_time_zone('Paris').to_date
     @dispos = Dispo.where(:jour => (@date.beginning_of_month)..(@date.end_of_month))
     @statuts = Statut.all
+    @weekdays = [0,6]
+	  @day_first = @date.at_beginning_of_month
+	  @day_last = @date.at_beginning_of_month.next_month
   end
   def user_stats
     @date = params[:month] ? Date.parse(params[:month]) : Time.now.in_time_zone('Paris').to_date
     @dispos = Dispo.where(:jour => (@date.beginning_of_month)..(@date.end_of_month))
     @statuts = Statut.all
+    @weekdays = [0,6]
+	  @day_first = @date.at_beginning_of_month
+	  @day_last = @date.at_beginning_of_month.next_month
   end
   
 

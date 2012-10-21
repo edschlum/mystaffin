@@ -20,13 +20,8 @@
 		    </li>
 		    </ul>
 			  </h2>	
-	   <% weekdays = [0,6] %>
-	   <% day_first = @date.at_beginning_of_month %>
-	   <% day_last = @date.at_beginning_of_month.next_month %>
-		
-		
- 	Nombre de jours ouvrés : <% bday = calculate_working_days(day_first, day_last, weekdays).round %> <%= bday %><br />
-
+  	   <% bday = calculate_working_days(@day_first, @day_last, @weekdays).round %>
+	<i><%= current_user.first_name %>, quelques indicateurs sur ton activité... </i><br />
 	<% mission = user_nbre_mission("En mission") %>	<br />
 	
 	<% tx_libre = nbre_not_mission(bday,user_nbre_mission("Congés"),user_nbre_mission("Formation"),user_nbre_mission("Disponible"))%>

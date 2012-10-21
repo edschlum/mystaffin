@@ -19,13 +19,8 @@
 		   	<%= link_to "»", :month => (@date.next_month+1) %>
 		    </li>
 		    </ul>
-			  </h2>	
-	   <% weekdays = [0,6] %>
-	   <% day_first = @date.at_beginning_of_month %>
-	   <% day_last = @date.at_beginning_of_month.next_month %>
-		
-		
- 	Nombre de jours ouvrés : <% bday = calculate_working_days(day_first, day_last, weekdays).round %> <%= bday %><br />
+			  </h2>			
+ 	Nombre de jours ouvrés : <% bday = calculate_working_days(@day_first, @day_last, @weekdays).round %> <%= bday %><br />
 	Nombre de collaborateurs inscrits : <%= User.all.count %><br />
 	<% mission = nbre_mission("En mission") %>	<br />
 	
