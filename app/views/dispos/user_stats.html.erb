@@ -26,11 +26,11 @@
 		
 		
  	Nombre de jours ouvrés : <% bday = calculate_working_days(day_first, day_last, weekdays).round %> <%= bday %><br />
-	Nombre de collaborateurs inscrits : <%= User.all.count %><br />
-	<% mission = nbre_mission("En mission") %>	<br />
+
+	<% mission = user_nbre_mission("En mission") %>	<br />
 	
-	<% tx_libre = nbre_not_mission(bday,nbre_mission("Congés"),nbre_mission("Formation"),nbre_mission("Disponible"))%>
-	Taux de production du mois en cours: <strong><%= tx_production(mission,tx_libre) %></strong>
+	<% tx_libre = nbre_not_mission(bday,user_nbre_mission("Congés"),user_nbre_mission("Formation"),user_nbre_mission("Disponible"))%>
+	Ton taux de production du mois en cours: <strong><%= tx_production(mission,tx_libre) %></strong>
 
 
 	<% @statuts.each do |statut| %>
@@ -91,7 +91,7 @@
 	                name: 'Disponibilités',
 	                data: [
 					<% @statuts.each do |statut| %>
-					<%= @dispos.where(:statut_id => statut.id).count %>,
+					<%= current_user.dispos.where(:jour => (@date.beginning_of_month)..(@date.end_of_month)).where(:statut_id => statut.id).count %>,
 					<% end %>
 					  ]
 	            }]

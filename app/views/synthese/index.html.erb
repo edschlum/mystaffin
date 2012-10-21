@@ -11,7 +11,7 @@
       <ul>
         <% for dispo in dispos %>	
           		<li><span class="<%= dispo.statut.color %>"><%= dispo.statut.name %></span>	
-      				<%= link_to '/synthese', options = { :confirm => 'Supprimer cette valeur ?', :method => :delete, :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
+      				<%= link_to '/synthese/', options = { :confirm => 'Supprimer cette valeur ?', :method => :delete, :title => "Supprimer cette valeur", :rel => "tooltip"} do %>
 					<i class="icon-remove" title="Supprimer cette valeur"></i>
 					<% end %>
 				</li>

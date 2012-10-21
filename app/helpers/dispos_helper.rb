@@ -16,4 +16,19 @@ module DisposHelper
         end
         diff - holidays
    end
+   def nbre_mission(name)
+     id_statut = Statut.where(:name => name)
+     @dispos.where(:statut_id => id_statut).count
+   end
+   def user_nbre_mission(name)
+     id_statut = Statut.where(:name => name)
+     current_user.dispos.where(:jour => (@date.beginning_of_month)..(@date.end_of_month)).where(:statut_id => id_statut).count
+   end
+   def nbre_not_mission(working_days,formation,conges,en_dispo)
+     working_days - formation - conges - en_dispo
+   end
+   def tx_production(nbre_mission,nbre_not_mission)
+    tx = nbre_mission.to_f/nbre_not_mission * 100
+    number_to_percentage(tx, :precision => 1)
+   end
 end

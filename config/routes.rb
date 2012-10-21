@@ -3,6 +3,7 @@ Mystaffin::Application.routes.draw do
   get "synthese" => "synthese#index", :as => "synthese"
   get "board" => "board#index", :as => "board"
   get "dispos/", :to => "dispos#new"
+  get "indicateurs", :to => "dispos#user_stats"
   
   get "users/index"
   get "users/show"

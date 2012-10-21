@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require raphael
-//= require morris.min
+//= require highcharts
+//= require highcharts/highcharts-more 
 //= require_tree .
