@@ -21,10 +21,11 @@
 		    </ul>
 			  </h2>			
  	Nombre de jours ouvrés : <% bday = calculate_working_days(@day_first, @day_last, @weekdays).round %> <%= bday %><br />
-	Nombre de collaborateurs inscrits : <%= User.all.count %><br />
+	Nombre de collaborateurs inscrits : <%= collab = User.all.count %><br />
+	<% total_bday = (collab-1) * bday #on enleve l'admin %>
 	<% mission = nbre_mission("En mission") %>	<br />
 	
-	<% tx_libre = nbre_not_mission(bday,nbre_mission("Congés"),nbre_mission("Formation"),nbre_mission("Disponible"))%>
+	<% tx_libre = nbre_not_mission(total_bday,nbre_mission("Congés"),nbre_mission("Formation"),nbre_mission("Disponible"))%>
 	Taux de production du mois en cours: <strong><%= tx_production(mission,tx_libre) %></strong>
 
 
