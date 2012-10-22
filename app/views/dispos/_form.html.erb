@@ -1,19 +1,19 @@
 <% ajd = @dispo.jour%>
 <% if @dispo.jour.wday == 6 %>
 <div class="alert alert-info">
-	Attention, le <%= ajd.to_date.to_s(:short)  %>, c'est un samedi ! <%= link_to 'Passer directement au lundi en cliquant ici', new_dispo_path(:day => @dispo.jour.to_date+2) %>
+	Attention, le <%= l ajd, :format => "%A %d %B" %>, c'est un samedi ! <%= link_to 'Passer directement au lundi en cliquant ici', new_dispo_path(:day => @dispo.jour.to_date+2) %>
 	</div>
 <% end %>
 <% if @dispo.jour.wday == 0 %>
 <div class="alert alert-info">
-	Attention, le <%= ajd.to_date.to_s(:short) %>, c'est un dimanche ! <%= link_to 'Passer directement au lundi en cliquant ici', new_dispo_path(:day => @dispo.jour.to_date+1) %>
+	Attention, le <%= l ajd, :format => "%A %d %B" %>, c'est un dimanche ! <%= link_to 'Passer directement au lundi en cliquant ici', new_dispo_path(:day => @dispo.jour.to_date+1) %>
 	</div>
 <% end %>
 
 <!-- Si le user a des dispos -->
 <% if current_user.dispos.of_day(@date).any? %>
 	<div id="deja_dispo" class="well"> 
-		Le <%= ajd.to_time.strftime("%a %d %b") %>, tu es : 
+		Le <%= l ajd, :format => "%A %d %B" %>, tu es : 
 		<% current_user.dispos.of_day(@date).each do |truc| %>
 		 	<span class="label label-info"><%= truc.statut.name %></span>
 			 <% if truc.comments? %>
@@ -39,7 +39,7 @@
 <% else %>
 <%= form_for(@dispo, :html => { :class => "well" }) do |f| %>
 	<div class="control-group">
-		<label class="control-label"><%= current_user.first_name %>, le <%= ajd.to_time.strftime("%A %d %b")  %>, tu es :</label>
+		<label class="control-label"><%= current_user.first_name %>, le <%= l ajd, :format => "%A %d %B" %>, tu es :</label>
 			<div class="controls">
 				<%= f.hidden_field :user_id, :value => current_user.id %>
 				<%= f.hidden_field :jour, :value => ajd %>
@@ -56,11 +56,11 @@
 						<%= f.text_field :comments, :class => "input-large" %>
 				</div>
 			</div>
-			<div class="control-group">
+<!--			<div class="control-group">
 				<div class="controls">
 					<a href="#">Ajouter une demi-journée</a>
 				</div>
-			</div>
+			</div> -->
 
 		  <div class="controls">
 		    <%= f.submit 'Sauvegarder >>', :class => "btn btn-success" %>
@@ -70,7 +70,7 @@
 			<div id="next_days" class="btn-group">
 				</br >
 				<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date), :class => "btn" %>
-				<button class="btn"><%= ajd.to_time.strftime("%a %d %b") %></button>
+				<button class="btn"><%= l ajd, :format => "%a %d %b" %></button>
 				<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date), :class => "btn" %>
 			</div>
 			</div>

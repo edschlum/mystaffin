@@ -7,7 +7,7 @@
     <li class="previous">
     <%= link_to '«', :week => (@date.beginning_of_week-1) %>
     </li>
-<%=h @date.strftime("%B %Y") %>
+<%=h l @date, :format => "%B %Y" %>
     <li class="next">
    	<%= link_to "»", :week => (@date.end_of_week+1) %>
     </li>

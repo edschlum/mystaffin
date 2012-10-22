@@ -14,7 +14,7 @@
 		    <li class="previous">
 		    <%= link_to '«', :month => (@date.prev_month-1) %>
 		    </li>
-		<%=h @date.strftime("%B %Y") %>
+		<%=h l @date, :format => "%B %Y" %>
 		    <li class="next">
 		   	<%= link_to "»", :month => (@date.next_month+1) %>
 		    </li>

@@ -125,6 +125,8 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails-i18n (0.6.6)
+      i18n (~> 0.5)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -208,6 +210,7 @@ DEPENDENCIES
   launchy (>= 2.1.0)
   pg
   rails (= 3.2.8)
+  rails-i18n
   rolify (>= 3.1.0)
   rspec-rails (>= 2.9.0.rc2)
   sass-rails (~> 3.2.3)

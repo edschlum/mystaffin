@@ -1,7 +1,7 @@
 <div id="calendar">
   <h2 id="month">
     <%= link_to "<", :day => (@date.beginning_of_month-1) %>
-    <%=h @date.strftime("%B %Y") %>
+    <%=h l @date, :format => "%B %Y" %>
     <%= link_to ">", :day => (@date.end_of_month+1) %>
   </h2>
   <%= calendar_for @dispos, :year => @date.year, :month => @date.month do |calendar| %>

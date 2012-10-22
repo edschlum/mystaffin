@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.8'
+gem 'rails-i18n'
 
 gem "watu_table_builder", :require => "table_builder"
 gem 'twitter-bootstrap-rails'
