@@ -25,11 +25,15 @@ fr:
     confirmations:
       send_instructions: "Vous allez recevoir un courriel contenant des instructions pour activer votre compte."
       confirmed: "Votre compte a été activé. Vous êtes maintenant connecté."
+      user:
+        confirmed: "Votre compte a été activé. Vous êtes maintenant connecté."            
     registrations:
       user:
         signed_up: "Votre inscription est enregistrée. Si demandé, un courriel de confirmation vous a été envoyé."
         updated: "Votre mise à jour a été prise en compte."
         destroyed: "Votre compte a été supprimé. Nous espérons vous revoir bientôt."
+        signed_up_but_unconfirmed: "Votre inscription est enregistrée. Un courriel de confirmation vous a été envoyé pour valider votre inscription."
+        confirmed: "Votre inscription est validée."
     unlocks:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour déverrouiller votre compte."
       unlocked: "Votre compte est déverrouillé. Vous êtes maintenant connecté."
