@@ -91,7 +91,11 @@ class DisposController < ApplicationController
 
     respond_to do |format|
       if @dispo.save
-        format.html { redirect_to new_dispo_path(:day => @dispo.jour.tomorrow.to_date), notice: 'OK !' }
+	if @dispo.jour.wday == 5
+		format.html { redirect_to new_dispo_path(:day => @dispo.jour.to_date+3), notice: 'OK !' }
+	else
+		format.html { redirect_to new_dispo_path(:day => @dispo.jour.tomorrow.to_date), notice: 'OK !' }
+        end
         format.json { render json: @dispo, status: :created, location: @dispo }
       else
         flash[:error] = "Merci de verifier votre formulaire."
