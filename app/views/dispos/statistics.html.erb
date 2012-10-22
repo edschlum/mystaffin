@@ -28,8 +28,8 @@
 	<% current_bday = (collab) * jour_travaille #on enleve l'admin %>
 	<% mission = nbre_mission("En mission") %>	<br />
 	
-	<% tx_prev = nbre_not_mission(total_bday,nbre_mission("Congés"),nbre_mission("Formation"),nbre_mission("Disponible"),nbre_mission("Propale")) %>
-	<% tx_actu = nbre_not_mission(current_bday,nbre_mission("Congés"),nbre_mission("Formation"),nbre_mission("Disponible"),nbre_mission("Propale"))%>
+	<% tx_prev = nbre_not_mission(total_bday,nbre_mission("Congés"),nbre_mission("Formation")) %>
+	<% tx_actu = nbre_not_mission(current_bday,nbre_mission("Congés"),nbre_mission("Formation"))%>
 	
 	Taux de production en cours : <strong><%= tx_production(mission,tx_actu) %></strong> <br /> 
 	Taux de production du mois prévisionnel : <strong><%= tx_production(mission,tx_prev) %></strong>
