@@ -20,15 +20,18 @@
 		    </li>
 		    </ul>
 			  </h2>	
-  	   <% bday = calculate_working_days(@day_first, @day_last, @weekdays).round %>
-	   <% jour_travaille = calculate_working_days(@day_first, @date, @weekdays).round %>
+  	 Jours ouvrés : <%= bday = calculate_working_days(@day_first, @day_last, @weekdays).round %>
+
+	 Jours ouvrés jusqu'à aujourd'hui :  <%= jour_travaille = calculate_working_days(@day_first, @date, @weekdays).round %> <br />
 	<i><%= current_user.first_name %>, quelques indicateurs sur ton activité... </i><br />
 	<% mission = user_nbre_mission("En mission") %>	<br />
+	<% current_mission = user_nbre_current_mission("En mission") %>
 	
 	<% tx_libre = nbre_not_mission(bday,user_nbre_mission("Congés"),user_nbre_mission("Formation"))%>
-	<% tx_actu = nbre_not_mission(jour_travaille,nbre_mission("Congés"),nbre_mission("Formation"))%>
+	<% tx_actu = nbre_not_mission(jour_travaille,user_nbre_current_mission("Congés"),user_nbre_current_mission("Formation"))%>
 	
-	Ton taux de production en cours : <strong><%= tx_production(mission,tx_actu) %></strong> <br /> 
+	Ton taux de production en cours : <strong><%= tx_production(current_mission,tx_actu) %></strong> <br /> 
+	<hr />
 	Ton taux de production prévisionnel sur le mois: <strong><%= tx_production(mission,tx_libre) %></strong>
 
 
