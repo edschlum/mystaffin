@@ -20,9 +20,9 @@
 		    </li>
 		    </ul>
 			  </h2>	
-  	 Jours ouvrés : <%= bday = calculate_working_days(@day_first, @day_last, @weekdays).round %>
+  	  <% bday = calculate_working_days(@day_first, @day_last, @weekdays).round %>
 
-	 Jours ouvrés jusqu'à aujourd'hui :  <%= jour_travaille = calculate_working_days(@day_first, @date, @weekdays).round %> <br />
+	  <% jour_travaille = calculate_working_days(@day_first, @date, @weekdays).round %>
 	<i><%= current_user.first_name %>, quelques indicateurs sur ton activité... </i><br />
 	<% mission = user_nbre_mission("En mission") %>	<br />
 	<% current_mission = user_nbre_current_mission("En mission") %>
@@ -52,7 +52,7 @@
 	                text: 'Disponibilités'
 	            },
 	            subtitle: {
-	                text: 'BT Secteur Public'
+	                text: '<%= current_user.first_name %> <%= current_user.name %>'
 	            },
 	            xAxis: {
 	                categories: [

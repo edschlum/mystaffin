@@ -16,10 +16,22 @@ module DisposHelper
         end
         diff - holidays
    end
+   #### Statistiques générales ###
+   # Nombre de jours par statut
    def nbre_mission(name)
      id_statut = Statut.where(:name => name)
-     @dispos.where(:statut_id => id_statut).count
+     @dispos.where(:jour => (@date.beginning_of_month)..(@date.end_of_month)).where(:statut_id => id_statut).count
    end
+   
+   # Nombre de jours par statut jusqu'à aujourd'hui
+   def nbre_current_mission(name)
+     id_statut = Statut.where(:name => name)
+     @dispos.where(:jour => (@date.beginning_of_month)..(@date)).where(:statut_id => id_statut).count
+   end  
+    
+   ####################
+   
+   ### Statistiques par utilisateur ###
    def user_nbre_mission(name)
      id_statut = Statut.where(:name => name)
      current_user.dispos.where(:jour => (@date.beginning_of_month)..(@date.end_of_month)).where(:statut_id => id_statut).count
@@ -28,6 +40,7 @@ module DisposHelper
      id_statut = Statut.where(:name => name)
      current_user.dispos.where(:jour => (@date.beginning_of_month)..(@date)).where(:statut_id => id_statut).count
    end
+   
    #TODO : Gérer ici au mieux les "non missions" => Prendre tous les jours, et soustraire ceux qui sont en mission
    def nbre_not_mission(working_days,formation,conges)
      working_days - formation - conges

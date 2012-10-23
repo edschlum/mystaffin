@@ -24,14 +24,17 @@
  	Nombre de jours travaillés du mois jusqu'à aujourd'hui :  <% jour_travaille = calculate_working_days(@day_first, @date, @weekdays).round %> <%= jour_travaille %><br />
 
 	Nombre de collaborateurs inscrits : <%= collab = User.all.count %><br />
-	<% total_bday = (collab) * bday #on enleve l'admin %>
-	<% current_bday = (collab) * jour_travaille #on enleve l'admin %>
+	<% total_bday = collab * bday %>
+	<% current_bday = collab * jour_travaille %>
+	
 	<% mission = nbre_mission("En mission") %>	<br />
 	
-	<% tx_prev = nbre_not_mission(total_bday,nbre_mission("Congés"),nbre_mission("Formation")) %>
-	<% tx_actu = nbre_not_mission(current_bday,nbre_mission("Congés"),nbre_mission("Formation"))%>
+	<% current_mission = nbre_current_mission("En mission") %>
 	
-	Taux de production en cours : <strong><%= tx_production(mission,tx_actu) %></strong> <br /> 
+	<% tx_prev = nbre_not_mission(total_bday,nbre_mission("Congés"),nbre_mission("Formation")) %>
+	<% tx_actu = nbre_not_mission(current_bday,nbre_current_mission("Congés"),nbre_current_mission("Formation"))%>
+	
+	Taux de production en cours : <strong><%= tx_production(current_mission,tx_actu) %></strong> <br /> 
 	Taux de production du mois prévisionnel : <strong><%= tx_production(mission,tx_prev) %></strong>
 
 
