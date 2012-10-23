@@ -6,7 +6,7 @@ class DigestMailer < ActionMailer::Base
     @user = User.all.map(&:email),
     @url = "http://www.mystaff.in"
     @recipients = "#{@user.name} <#{@user.email}>"
-    @subject = "Pense à remplir ton TimeSheet !"
+    @subject = "Remplis ton TimeSheet !"
     @sent_on = Time.now
   
   end 
