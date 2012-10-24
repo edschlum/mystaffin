@@ -42,8 +42,8 @@ module DisposHelper
    end
    
    #TODO : Gérer ici au mieux les "non missions" => Prendre tous les jours, et soustraire ceux qui sont en mission
-   def nbre_not_mission(working_days,formation,conges)
-     working_days - formation - conges
+   def nbre_not_mission(working_days,formation,conges,autre)
+     working_days - formation - conges - autre
    end
    def tx_production(nbre_mission,nbre_not_mission)
     tx = nbre_mission.to_f/nbre_not_mission * 100

@@ -31,8 +31,8 @@
 	
 	<% current_mission = nbre_current_mission("En mission") %>
 	
-	<% tx_prev = nbre_not_mission(total_bday,nbre_mission("Congés"),nbre_mission("Formation")) %>
-	<% tx_actu = nbre_not_mission(current_bday,nbre_current_mission("Congés"),nbre_current_mission("Formation"))%>
+	<% tx_prev = nbre_not_mission(total_bday,nbre_mission("Congés"),nbre_mission("Formation"),nbre_current_mission("Autre")) %>
+	<% tx_actu = nbre_not_mission(current_bday,nbre_current_mission("Congés"),nbre_current_mission("Formation"),nbre_current_mission("Autre"))%>
 	
 	Taux de production en cours : <strong><%= tx_production(current_mission,tx_actu) %></strong> <br /> 
 	Taux de production du mois prévisionnel : <strong><%= tx_production(mission,tx_prev) %></strong>

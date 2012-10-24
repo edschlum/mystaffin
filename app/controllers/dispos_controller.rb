@@ -1,6 +1,7 @@
 class DisposController < ApplicationController
   # GET /dispos
   # GET /dispos.json
+  before_filter :authenticate_user!
   def index
     @dispos = Dispo.all
     

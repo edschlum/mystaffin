@@ -1,6 +1,8 @@
 class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
+  before_filter :authenticate_user!
+  
   def index
     @teams = Team.all
 

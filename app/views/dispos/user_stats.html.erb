@@ -27,8 +27,8 @@
 	<% mission = user_nbre_mission("En mission") %>	<br />
 	<% current_mission = user_nbre_current_mission("En mission") %>
 	
-	<% tx_libre = nbre_not_mission(bday,user_nbre_mission("Congés"),user_nbre_mission("Formation"))%>
-	<% tx_actu = nbre_not_mission(jour_travaille,user_nbre_current_mission("Congés"),user_nbre_current_mission("Formation"))%>
+	<% tx_libre = nbre_not_mission(bday,user_nbre_mission("Congés"),user_nbre_mission("Formation"),user_nbre_mission("Autre"))%>
+	<% tx_actu = nbre_not_mission(jour_travaille,user_nbre_current_mission("Congés"),user_nbre_current_mission("Formation"),user_nbre_mission("Autre"))%>
 	
 	Ton taux de production en cours : <strong><%= tx_production(current_mission,tx_actu) %></strong> <br /> 
 	<hr />

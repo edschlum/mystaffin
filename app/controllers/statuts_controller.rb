@@ -1,6 +1,8 @@
 class StatutsController < ApplicationController
   # GET /statuts
   # GET /statuts.json
+  before_filter :authenticate_user!
+  
   def index
     @statuts = Statut.all
 
