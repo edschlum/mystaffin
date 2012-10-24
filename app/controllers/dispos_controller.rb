@@ -125,11 +125,12 @@ class DisposController < ApplicationController
   # DELETE /dispos/1
   # DELETE /dispos/1.json
   def destroy
+    @date = params[:day] ? Date.parse(params[:day]) : Date.current()
     @dispo = Dispo.find(params[:id])
     @dispo.destroy
 
     respond_to do |format|
-      format.html { redirect_to dispos_url }
+      format.html { redirect_to new_dispo_path(:day => @date) }
       format.json { head :no_content }
     end
   end

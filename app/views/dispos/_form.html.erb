@@ -21,9 +21,9 @@
 			<% end %>
 			<br /><br />
 				<div id="proposer_modifier" class="controls">
-					<%= link_to dispo_path(truc.id ), options = { :confirm => 'Supprimer cette valeur ?', :method => :delete, :class => "btn btn-danger btn-small",  } do %>
-					Supprimer cette valeur
-					<i class="icon-trash"></i>
+					<%= link_to dispo_path(truc.id ), options = { :confirm => 'Modifier cette valeur ?', :method => :delete, :class => "btn btn-danger btn-small",  } do %>
+					Modifier
+					<i class="icon-edit"></i>
 					<% end %>
 					<br /><br />
 				</div>
