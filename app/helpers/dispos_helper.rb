@@ -49,4 +49,8 @@ module DisposHelper
     tx = nbre_mission.to_f/nbre_not_mission * 100
     number_to_percentage(tx, :precision => 1)
    end
+
+   def user_is_dispo(current_date)
+     current_user.dispos.where("jour like ?", "%#{current_date}%").exists?
+   end
 end
