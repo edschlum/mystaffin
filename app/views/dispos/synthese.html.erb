@@ -11,7 +11,7 @@
       <ul>
         <% for dispo in dispos %>	
           		<li><span class="<%= dispo.statut.color %>"><%= dispo.statut.name %></span>	
-      				<%= link_to dispo, options = {:confirm => 'Supprimer cette valeur ?', :method => :delete } do %>
+      				<%= link_to dispo, options = { :confirm => 'Supprimer cette valeur ?', :method => :delete } do %>
 					<i rel="tooltip" title="Supprimer cette valeur" class="icon-remove"></i>
 					<% end %>
 				</li>
@@ -21,7 +21,7 @@
         <% end %>
 		<li>
 			<% if not user_is_dispo(date)  %>
-				<%= link_to new_dispo_path(:day => date), html_options = {:title => "Ajouter une dispo", :rel => "tooltip"} do %> <i class="icon-plus"></i><% end %>
+				<%= link_to new_dispo_path(:day => date), options = { :title => "Ajouter une dispo", :rel => "tooltip"} do %> <i class="icon-plus"></i><% end %>
 			<% end %>
 		</li>
 	<% #end %>

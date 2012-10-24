@@ -51,6 +51,6 @@ module DisposHelper
    end
 
    def user_is_dispo(current_date)
-     current_user.dispos.where("jour like ?", "%#{current_date}%").exists?
+     current_user.dispos.where(:jour => (current_date.beginning_of_day)..(current_date.end_of_day)).exists?
    end
 end
