@@ -41,15 +41,14 @@ Mystaffin::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "mystaff.in",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["noreplymystaffin@gmail.com"],
-    password: ENV["mystaffin2012"],
-    openssl_verify_mode: 'none'
-  }
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'www.mystaff.in',
+    :user_name            => 'noreplymystaffin@gmail.com',
+    :password             => 'mystaffin2012',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 end

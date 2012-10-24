@@ -12,4 +12,11 @@ class Devise::Mailer < ::ActionMailer::Base
   def unlock_instructions(record)
     devise_mail(record, :unlock_instructions)
   end
+  
+  def digest_email(user)
+    @url = "http://www.mystaff.in"
+    @recipients = "#{user.name} <#{user.email}>"
+    @subject = "Remplis ton TimeSheet !"
+    @sent_on = Time.now
+  end
 end
