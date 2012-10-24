@@ -19,6 +19,12 @@
 					<%= dispo.comments %>
 				</li>
         <% end %>
+		<li>
+			<% if not user_is_dispo(date)  %>
+				<%= link_to new_dispo_path(:date => date), options = {:title => "Ajouter une dispo", :rel => "tooltip"} do %> <i class="icon-plus"></i><% end %>
+			<% end %>
+		</li>
+	<% #end %>
       </ul>
     <% end %>
   <% end %>
