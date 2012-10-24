@@ -30,7 +30,7 @@
 	<% tx_libre = nbre_not_mission(bday,user_nbre_mission("Congés"),user_nbre_mission("Formation"),user_nbre_mission("Autre"))%>
 	<% tx_actu = nbre_not_mission(jour_travaille,user_nbre_current_mission("Congés"),user_nbre_current_mission("Formation"),user_nbre_mission("Autre"))%>
 	
-	Ton taux de production en cours : <strong><%= tx_production(current_mission,tx_actu) %></strong> <br /> 
+	Ton taux de production en cours : <strong><%= tx_production(current_mission,tx_actu) %></strong> <a href="#" rel="tooltip" title="(Nombre de jours en mission)/(Nombre jours ouvrés - Nombre de jours de formation - Nombre de jours de congés - Nombre de jours autre)"><i class="icon-question-sign"></i></a> <br /> 
 	<hr />
 	Ton taux de production prévisionnel sur le mois: <strong><%= tx_production(mission,tx_libre) %></strong>
 
