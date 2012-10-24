@@ -14,9 +14,10 @@ class Devise::Mailer < ::ActionMailer::Base
   end
   
   def digest_email(user)
-    @url = "http://www.mystaff.in"
-    @recipients = "#{user.name} <#{user.email}>"
-    @subject = "Remplis ton TimeSheet !"
-    @sent_on = Time.now
+    headers["Reply-to"] = "noreplymystaffin@gmail.com"
+    headers["Return-Path"] = "noreplymystaffin@gmail.com"
+    @name = user.first_name
+    mail(:from => "noreplymystaffin@gmail.com", :to => user.email, :subject => "Remplis ton TimeSheet !")
+    sent_on = Time.now
   end
 end
