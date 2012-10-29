@@ -28,9 +28,18 @@
 					<br /><br />
 				</div>
 				<div id="next_days" class="btn-group">
-					<%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date), :class => "btn" %>
-					<button class="btn"><%= l ajd, :format => "%A %d %B" %></button>
-					<%= link_to '»' , new_dispo_path(:day => @dispo.jour.tomorrow.to_date), :class => "btn" %>
+					 <% if @dispo.jour.wday == 1 %>
+	                                        <%= link_to '«', new_dispo_path(:day => @dispo.jour.to_date-3), :class => "btn" %>
+        	                        <% else %>
+                	                        <%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date), :class => "btn" %>
+                        	        <% end %>
+	                                <button class="btn"><%= l ajd, :format => "%A %d %B" %></button>
+
+        	                        <% if @dispo.jour.wday == 5 %>
+                	                        <%= link_to '»' , new_dispo_path(:day => @dispo.jour.to_date+3), :class => "btn" %>
+                        	        <% else %>
+                                	        <%= link_to '»' , new_dispo_path(:day =>@dispo.jour.tomorrow.to_date), :class => "btn" %>
+	                                <% end %>
 				</div>
 		<% end %>
 	</div>
@@ -75,7 +84,7 @@
                                         <%= link_to '«', new_dispo_path(:day => @dispo.jour.yesterday.to_date), :class => "btn" %>
                                 <% end %>
 
-				<button class="btn"><%= l ajd, :format => "%a %d %b" %></button>
+				<button class="btn"><%= l ajd, :format => "%A %d %B" %></button>
 
                                 <% if @dispo.jour.wday == 5 %>
                                         <%= link_to '»' , new_dispo_path(:day => @dispo.jour.to_date+3), :class => "btn" %>
