@@ -2,7 +2,7 @@
 <% if @dispo.jour.wday == 6 %>
 <div class="alert alert-info">
 	Attention, le <%= l ajd, :format => "%A %d %B" %>, c'est un samedi ! <%= link_to 'Passer directement au lundi en cliquant ici', new_dispo_path(:day => @dispo.jour.to_date+2) %>
-	</div>
+ 	</div>
 <% end %>
 <% if @dispo.jour.wday == 0 %>
 <div class="alert alert-info">
