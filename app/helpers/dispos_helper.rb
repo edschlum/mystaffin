@@ -3,7 +3,7 @@ module DisposHelper
    # to exclude (eg: [0,6] for sunday and saturday )
 
   def calculate_working_days(d1,d2,wdays)
-        diff = d2 - d1
+        diff = d2 - d1 + 1
         holidays = 0
         ret = (d2-d1).divmod(7)
         holidays =  ret[0].truncate * wdays.length
