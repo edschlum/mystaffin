@@ -12,11 +12,11 @@
 		<h2 id="month">
 		<ul class="pager">
 		    <li class="previous">
-		    <%= link_to '«', :month => (@date.prev_month-1) %>
+		    <%= link_to '«', :month => (@date.prev_month) %>
 		    </li>
 		<%=h l @date, :format => "%B %Y" %>
 		    <li class="next">
-		   	<%= link_to "»", :month => (@date.next_month+1) %>
+		   	<%= link_to "»", :month => (@date.next_month) %>
 		    </li>
 		    </ul>
 			  </h2>			
